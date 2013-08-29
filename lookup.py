@@ -11,9 +11,13 @@ import geonames
 GEONAMES_USERNAME = os.environ['GEONAMES_USERNAME']
 
 
-def get_latlng(q_arg):
+def get_latlng(name_arg):
 
-    result = geonames.search(q=q_arg, username=GEONAMES_USERNAME)
+    result = geonames.search(
+                    q=name_arg, 
+                    username=GEONAMES_USERNAME, 
+                    isNameRequired='true'
+                    )
 
     matches = result.get('geonames', [])
 
